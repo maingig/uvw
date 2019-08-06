@@ -5,6 +5,7 @@ from conans import ConanFile
 
 class UVMConan(ConanFile):
     name = "uvw"
+    version = "1.30.1"
     description = "Header-only, event based, tiny and easy to use libuv wrapper in modern C++"
     homepage = "https://github.com/skypjack/uvw"
     url = homepage
@@ -14,7 +15,7 @@ class UVMConan(ConanFile):
     exports = "LICENSE"
     exports_sources = "src/*"
     no_copy_source = True
-    requires = "libuv/1.30.0@bincrafters/stable"
+    requires = "libuv/1.30.1@yoda/stable"
 
     def package(self):
         self.copy(pattern="LICENSE", dst="licenses")
