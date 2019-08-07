@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from conans import ConanFile
-
+import os
 
 class UVMConan(ConanFile):
     name = "uvw"
@@ -15,7 +15,7 @@ class UVMConan(ConanFile):
     exports = "LICENSE"
     exports_sources = "src/*"
     no_copy_source = True
-    requires = "libuv/1.30.1@yoda/stable"
+    requires = "libuv/1.30.1@{0}".format(os.environ.get('CONAN_PREFIX'))
 
     def package(self):
         self.copy(pattern="LICENSE", dst="licenses")
