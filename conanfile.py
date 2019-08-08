@@ -15,7 +15,9 @@ class UVMConan(ConanFile):
     exports = "LICENSE"
     exports_sources = "src/*"
     no_copy_source = True
-    requires = "libuv/1.30.1@{0}".format(os.environ.get('CONAN_PREFIX'))
+
+    def requirements(self):
+        self.requires("libuv/1.30.1@{0}/{1}".format(self.user, self.channel))
 
     def package(self):
         self.copy(pattern="LICENSE", dst="licenses")
